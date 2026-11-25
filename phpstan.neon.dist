@@ -1,0 +1,23 @@
+includes:
+    - vendor/larastan/larastan/extension.neon
+
+parameters:
+    # Level 8 is the gate for every package (needs return types and
+    # parameter types everywhere, null-safety, no mixed method calls).
+    # Raise to 9 once the package has no `mixed` left.
+    level: 8
+
+    # The package's own config/ is a config directory: env() belongs there.
+    configDirectories:
+        - config
+
+    paths:
+        - src
+        - config
+        - tests
+
+    # Do not trust a docblock over the signature.
+    treatPhpDocTypesAsCertain: false
+
+    # Packages must not read env() outside config/. Larastan ships a rule
+    # for this; keep it enabled.

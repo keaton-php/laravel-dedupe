@@ -1,0 +1,71 @@
+{
+    "name": "keaton-php/laravel-dedupe",
+    "description": "Windowed record deduplication with configurable keys, normalizers, survivorship and an audit trail.",
+    "keywords": [
+        "laravel",
+        "laravel-dedupe",
+        "deduplication",
+        "audit-trail",
+        "data-quality"
+    ],
+    "homepage": "https://github.com/keaton-php/laravel-dedupe",
+    "support": {
+        "issues": "https://github.com/keaton-php/laravel-dedupe/issues",
+        "source": "https://github.com/keaton-php/laravel-dedupe",
+        "docs": "https://kevineaton.dev/docs/laravel-dedupe/",
+        "security": "https://github.com/keaton-php/laravel-dedupe/security/policy"
+    },
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Kevin Eaton",
+            "email": "kevin@kevineaton.dev",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "ext-mbstring": "*",
+        "illuminate/contracts": "^11.33.2||^12.0||^13.0",
+        "illuminate/database": "^11.33.2||^12.0||^13.0",
+        "illuminate/support": "^11.33.2||^12.0||^13.0"
+    },
+    "require-dev": {
+        "larastan/larastan": "^3.0",
+        "laravel/pint": "^1.18",
+        "orchestra/testbench": "^9.0||^10.0||^11.0",
+        "phpunit/phpunit": "^11.5||^12.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Keaton\\Dedupe\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Keaton\\Dedupe\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "analyse": "vendor/bin/phpstan analyse --memory-limit=1G",
+        "format": "vendor/bin/pint",
+        "lint": "vendor/bin/pint --test"
+    },
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Keaton\\Dedupe\\DedupeServiceProvider"
+            ],
+            "aliases": {
+                "Dedupe": "Keaton\\Dedupe\\Facades\\Dedupe"
+            }
+        }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
+}
